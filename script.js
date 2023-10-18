@@ -1,16 +1,3 @@
-const myLibrary = [];
-
-const theHobbit = new Book(
-    "The Hobbit", "J.R.R. Tolkien", 295, true)
-const theFellowship = new Book(
-    "The Fellowship of the Ring", "J.R.R. Tolkien", 423, false)
-const theTwoTowers = new Book(
-    "The Two Towers", "J.R.R. Tolkien", 352, false)
-const theReturn = new Book(
-    "The Return of the King", "J.R.R. Tolkien", 416, false)
-
-const booksDiv = document.querySelector('.books');
-
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -60,14 +47,6 @@ function displayLibrary() {
     });
 }
 
-const showButton = document.querySelector('.new-book');
-const dialog = document.querySelector('#new-book-dialog');
-const confirmBtn = dialog.querySelector('#confirmBtn');
-const titleInput = dialog.querySelector('#new-title');
-const authorInput = dialog.querySelector('#new-author');
-const pagesInput = dialog.querySelector('#new-pages');
-const readInput = document.getElementsByName('read');
-
 function getReadBoolean() {
   for(let i = 0; i < readInput.length; i++) {
     if (readInput[i].checked) {
@@ -81,6 +60,26 @@ function getReadBoolean() {
     }
   }
 }
+
+const myLibrary = [];
+
+const theHobbit = new Book(
+    "The Hobbit", "J.R.R. Tolkien", 295, true)
+const theFellowship = new Book(
+    "The Fellowship of the Ring", "J.R.R. Tolkien", 423, false)
+const theTwoTowers = new Book(
+    "The Two Towers", "J.R.R. Tolkien", 352, false)
+const theReturn = new Book(
+    "The Return of the King", "J.R.R. Tolkien", 416, false)
+
+const booksDiv = document.querySelector('.books');
+const showButton = document.querySelector('.new-book');
+const dialog = document.querySelector('#new-book-dialog');
+const confirmBtn = dialog.querySelector('#confirmBtn');
+const titleInput = dialog.querySelector('#new-title');
+const authorInput = dialog.querySelector('#new-author');
+const pagesInput = dialog.querySelector('#new-pages');
+const readInput = document.getElementsByName('read');
 
 // Show dialog when "+ New Book" button is clicked
 showButton.addEventListener("click", () => {
