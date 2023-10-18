@@ -27,12 +27,9 @@ function addBookToLibrary(book) {
 }
 
 function displayLibrary() {
-    // for (book of myLibrary) {
-        
-
-    //     booksDiv.appendChild(titleDiv);
-    //     console.log(book);
-    // }
+    const keepRow0 = document.querySelector('#row0');
+    booksDiv.innerHTML= "";
+    booksDiv.appendChild(keepRow0);
     myLibrary.forEach((book, index) => {
         const singleBook = document.createElement('div');
         singleBook.className = 'row';
@@ -62,6 +59,48 @@ function displayLibrary() {
         booksDiv.appendChild(singleBook);
     });
 }
+
+const showButton = document.querySelector('.new-book');
+const dialog = document.querySelector('#new-book-dialog');
+const confirmBtn = dialog.querySelector('#confirmBtn');
+const titleInput = dialog.querySelector('#new-title');
+const authorInput = dialog.querySelector('#new-author');
+const pagesInput = dialog.querySelector('#new-pages');
+const readInput = document.getElementsByName('read');
+
+function getReadBoolean() {
+  for(let i = 0; i < readInput.length; i++) {
+    if (readInput[i].checked) {
+      if (readInput[i].value === 'yes') {
+        return true;
+      } else if (readInput[i].value === 'no') {
+        return false;
+      } else {
+        return null;
+      }
+    }
+  }
+}
+
+// Show dialog when "+ New Book" button is clicked
+showButton.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+dialog.addEventListener("close", (e) => {
+  const newTitle = titleInput.value;
+  const newAuthor = authorInput.value;
+  const newPages = pagesInput.value;
+  const newRead = getReadBoolean();
+  const newBook = new Book(newTitle, newAuthor, newPages, newRead);
+  myLibrary.push(newBook);
+  displayLibrary();
+});
+
+confirmBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  dialog.close();
+});
 
 addBookToLibrary(theHobbit);
 addBookToLibrary(theFellowship);
