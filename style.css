@@ -1,5 +1,10 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #1e293b;
+}
+
+button {
+    font-family: inherit;
 }
 
 .container {
@@ -9,28 +14,40 @@ body {
     grid-template-rows: auto;
     justify-items: center;
     align-items: center;
-    row-gap: 50px;
+    row-gap: 20px;
+}
+
+.heading {
+    color: #f8fafc;
 }
 
 .books {
     display: grid;
     row-gap: 20px;
-    background-color: rgb(202, 202, 202);
+    /* background-color: black; */
     padding: 40px;
     justify-items: center;
+    border-radius: 20px;
 }
 
 .row {
-    padding: 0 15px;
+    padding: 0 20px;
     display: grid;
-    grid-template-columns: 300px 170px 100px 100px 50px;
+    grid-template-columns: 300px 170px 100px 100px 110px 50px;
     grid-auto-rows: 70px;
     align-items: center;
-    background-color: blanchedalmond;
+    background-color: #cbd5e1;
+    border-radius: 16px;
+    /* box-shadow: 7px 7px 0px 0px rgba(255, 255, 255, 0.2); */
+}
+
+.books>:first-child {
+    background-color: transparent;
 }
 
 #row0 div {
     font-weight: 700;
+    color: #f8fafc;
 }
 
 .title {
@@ -59,10 +76,26 @@ button.delete:hover {
     fill: rgb(212, 0, 0);
 }
 
+button.read-toggle {
+    width: 100px;
+    border: none;
+    border-radius: 10px;
+    background-color: #1e293b;
+    color: #e2e8f0;
+    font-size: 16px;
+    padding: 5px 0px;
+}
+
+button.read-toggle:hover {
+    filter: drop-shadow(0px 0px 7px rgb(0 0 0 / 0.2));
+    cursor: pointer;
+    color: white;
+}
+
 button.new-book {
     border: none;
     border-radius: 24px;
-    background-color: blanchedalmond;
+    background-color: #cbd5e1;
     font-size: 20px;
     padding: 16px 50px;
 }
@@ -124,7 +157,7 @@ label {
 .buttons button {
     border: none;
     border-radius: 24px;
-    background-color: blanchedalmond;
+    background-color: #cbd5e1;
     font-size: 20px;
     padding: 16px 50px;
     
