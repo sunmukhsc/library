@@ -14,17 +14,17 @@ body {
 
 .books {
     display: grid;
-    grid-template-columns: 700px;
     row-gap: 20px;
     background-color: rgb(202, 202, 202);
-    padding: 20px;
+    padding: 40px;
+    justify-items: center;
 }
 
 .row {
     padding: 0 15px;
     display: grid;
-    grid-template-columns: 300px 170px 100px 130px;
-    grid-auto-rows: 50px;
+    grid-template-columns: 300px 170px 100px 100px 50px;
+    grid-auto-rows: 70px;
     align-items: center;
     background-color: blanchedalmond;
 }
@@ -39,6 +39,24 @@ body {
 
 .author {
     font-size: 18px;
+}
+
+button.delete {
+    border: none;
+    background: transparent;
+    padding: 5px 1px;
+    border-width: 0;
+    padding: 0;
+    line-height:0px
+}
+
+button.delete:hover {
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.2));
+    cursor: pointer;
+}
+
+.fill {
+    fill: rgb(212, 0, 0);
 }
 
 button.new-book {

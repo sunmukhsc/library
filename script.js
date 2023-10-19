@@ -37,11 +37,22 @@ function displayLibrary() {
         const readDiv = document.createElement('div');
         readDiv.className = 'read';
         readDiv.textContent = book.read ? 'Read' : 'Not Read';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete';
+        deleteBtn.setAttribute('id', `index${index}`)
+        deleteBtn.innerHTML = '<svg class="fill" width="25px" height="25px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>trash-can-outline</title><path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" /></svg>';
+
+        deleteBtn.addEventListener("click", () => {
+          myLibrary.splice(index, 1);
+          displayLibrary();
+        });
         
         singleBook.appendChild(titleDiv);
         singleBook.appendChild(authorDiv);
         singleBook.appendChild(pagesDiv);
         singleBook.appendChild(readDiv);
+        singleBook.appendChild(deleteBtn);
 
         booksDiv.appendChild(singleBook);
     });
